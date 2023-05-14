@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import recipes.model.Recipe;
+import recipes.service.RecipeService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 @RestController
 @Validated
@@ -23,12 +26,32 @@ public class RecipeController {
 
     @GetMapping("{id}")
     public ResponseEntity<Recipe> getRecipe(@PathVariable("id") int id) {
-        val recipes = recipeService.getAllRecipes();
-        val recipe = recipes.stream().filter(it -> it.getId() == id).toList();
-        if (recipe.isEmpty()) {
-            return ResponseEntity.notFound().build();
+       val recipe = recipeService.getRecipeById(id);
+        return recipe.map(value -> ResponseEntity.ok().body(value)).orElseGet(()
+                -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Recipe>> searchRecipes(
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "name", required = false) String name) {
+        if (category != null) {
+            return recipeService.getRecipesByCategory(category);
+        } else if (name != null) {
+            return recipeService.getRecipesByName(name);
+        } else {
+            // Handle invalid request with no category or name parameter
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok().body(recipe.get(0));
+    }
+
+
+
+    @PutMapping("{id}")
+    public ResponseEntity<Recipe> updateRecipe(
+            @Valid @RequestBody Recipe newRecipe,
+            @PathVariable("id") int id) {
+        return recipeService.updateRecipe(newRecipe, id);
     }
 
     @PostMapping("/new")
@@ -41,12 +64,11 @@ public class RecipeController {
 
     @DeleteMapping("{id}")
     public ResponseEntity<Recipe> deleteRecipe(@PathVariable("id") int id) {
-        val recipes = recipeService.getAllRecipes();
-        val recipe = recipes.stream().filter(it -> it.getId() == id).toList();
+        val recipe = recipeService.getRecipeById(id);
         if (recipe.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        recipeService.deleteRecipe(recipe.get(0));
+        recipeService.deleteRecipe(recipe.get());
         return ResponseEntity.noContent().build();
     }
 }
