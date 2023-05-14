@@ -8,28 +8,32 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar" />
         </processorPath>
-        <module name="Recipes.Topics-Regexes_in_programs-Theory.main" />
-        <module name="Recipes.Recipes-task-build-classes-java.main" />
         <module name="Recipes.Recipes-task-build-reports-tests.test" />
-        <module name="Recipes.Recipes-task.test" />
-        <module name="Recipes.Topics-Regexes_in_programs-Check_IP_address.test" />
-        <module name="Recipes.Recipes-task-build-generated-sources-headers-java.main" />
         <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.test" />
         <module name="Recipes.Recipes-task-build-tmp.test" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_the_clock_time.test" />
         <module name="Recipes.Recipes-task-build-classes-java.test" />
-        <module name="Recipes.Recipes-task-build-reports-tests.main" />
-        <module name="Recipes.Topics-Regexes_in_programs-Check_IP_address.main" />
-        <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.main" />
-        <module name="Recipes.util.test" />
         <module name="Recipes.Recipes-task-build-tmp.main" />
         <module name="Recipes.Topics-Regexes_in_programs-Ignoring_spaces.test" />
         <module name="Recipes.Recipes-task-build-generated-sources-headers-java.test" />
-        <module name="Recipes.Recipes-task-build-test-results.main" />
         <module name="Recipes.Recipes-task.main" />
-        <module name="Recipes.Topics-Regexes_in_programs-Ignoring_spaces.main" />
         <module name="Recipes.Topics-Regexes_in_programs-Theory.test" />
         <module name="Recipes.Recipes-task-build-test-results.test" />
         <module name="Recipes.util.main" />
+        <module name="Recipes.Topics-Regexes_in_programs-Theory.main" />
+        <module name="Recipes.Recipes-task-build-classes-java.main" />
+        <module name="Recipes.Recipes-task.test" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_IP_address.test" />
+        <module name="Recipes.Recipes-task-build-generated-sources-headers-java.main" />
+        <module name="Recipes.Recipes-task-build-reports-tests.main" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_the_date.main" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_IP_address.main" />
+        <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.main" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_the_date.test" />
+        <module name="Recipes.util.test" />
+        <module name="Recipes.Topics-Regexes_in_programs-Check_the_clock_time.main" />
+        <module name="Recipes.Recipes-task-build-test-results.main" />
+        <module name="Recipes.Topics-Regexes_in_programs-Ignoring_spaces.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

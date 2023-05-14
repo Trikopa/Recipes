@@ -1,58 +1,5 @@
 type: edu
 files:
-- name: src/recipes/RecipesApplication.java
-  visible: true
-  text: |
-    package recipes;
-
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-    @SpringBootApplication
-    public class RecipesApplication {
-        public static void main(String[] args) {
-            SpringApplication.run(RecipesApplication.class, args);
-        }
-    }
-  learner_created: false
-- name: src/resources/application.properties
-  visible: true
-  text: |-
-    server.port=8881
-    management.endpoints.web.exposure.include=*
-    management.endpoint.shutdown.enabled=true
-  learner_created: false
-- name: build.gradle
-  visible: true
-  text: |-
-    buildscript {
-        apply plugin: 'hyperskill'
-
-        repositories {
-            mavenCentral()
-        }
-        dependencies {
-            classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
-            classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
-        }
-    }
-
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
-
-    repositories {
-        mavenCentral()
-    }
-
-    sourceSets.main.resources.srcDirs = ["src/resources"]
-
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-    }
-  learner_created: false
 - name: test/RecipesApplicationTest.java
   visible: false
   text: |
@@ -308,6 +255,31 @@ files:
         }
     }
   learner_created: false
+- name: src/resources/application.properties
+  visible: true
+  text: |-
+    server.port=8881
+    management.endpoints.web.exposure.include=*
+    management.endpoint.shutdown.enabled=true
+  learner_created: false
+- name: src/recipes/RecipeService.java
+  visible: true
+  learner_created: true
+- name: src/recipes/Recipe.java
+  visible: true
+  text: |
+    package recipes;
+
+    import lombok.Data;
+
+    @Data
+    public class Recipe {
+        String name;
+        String description;
+        String[] ingredients;
+        String[] directions;
+    }
+  learner_created: true
 - name: src/recipes/RecipeController.java
   visible: true
   text: |-
@@ -344,21 +316,58 @@ files:
                 }
             }
   learner_created: true
-- name: src/recipes/Recipe.java
+- name: src/recipes/RecipesApplication.java
   visible: true
   text: |
     package recipes;
 
-    import lombok.Data;
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    @Data
-    public class Recipe {
-        String name;
-        String description;
-        String[] ingredients;
-        String[] directions;
+    @SpringBootApplication
+    public class RecipesApplication {
+        public static void main(String[] args) {
+            SpringApplication.run(RecipesApplication.class, args);
+        }
     }
+  learner_created: false
+- name: build.gradle
+  visible: true
+  text: |-
+    buildscript {
+        apply plugin: 'hyperskill'
+
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
+            classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceSets.main.resources.srcDirs = ["src/resources"]
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+  learner_created: false
+- name: src/recipes/RecipeRepository.java
+  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13090#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sun, 14 May 2023 13:27:36 UTC"
 record: -1

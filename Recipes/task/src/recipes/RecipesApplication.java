@@ -9,14 +9,3 @@ public class RecipesApplication {
         SpringApplication.run(RecipesApplication.class, args);
     }
 }
-
-
-class ArrayUtils {
-    public <E> E getFirst (E[] arr) {
-        if (arr.length == 0) {
-            return null;
-        } else {
-            return arr[0];
-        }
-    }
-}
